@@ -1,0 +1,15 @@
+<h2>User info</h2>
+    <div><%= image_tag user.get_profile_image(100,100) %></div>
+    <table class="table">
+      <tr>
+       <th>name</th>
+        <th><%= user.name %></th>
+      </tr>
+    <tr>
+      <th>introduction</th>
+      <th></th>
+    </tr>
+  </table>
+  <div class="row">
+      <%= link_to "編集", edit_user_path(@user) %>
+  </div>
