@@ -2,6 +2,28 @@
   <div class="row">
     <div class="col-md-3">
       <%= render "info", user: @user %>
-      <%= render 'books/new', book: @book %>
+      <%= render 'books/new', book: @booknew %>
     </div>
-    
+    <div class="col-md-9">
+      <h2>Books</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Title</th>
+            <th>Opinion</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% @books.each do |book| %>
+          <tr>
+            <td><%= image_tag book.user.get_profile_image(80,80) %></td>
+            <td><%= book.title %></td>
+            <td><%= book.body %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
