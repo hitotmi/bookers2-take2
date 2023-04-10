@@ -1,20 +1,14 @@
 <div class="row">
    <div class="col-md-3">
-    <h2>User info</h2>
-    <!--<div><#= image_tag @user.get_profile_image(100,100) %></div>-->
-    <table class="table">
-      <tr>
-       <th>name</th>
-        <th><%#= @user.name %></th>
-      </tr>
-    <tr>
-      <th>introduction</th>
-      <th></th>
-    </tr>
-  </table>
-   <div class="row">
-      <%= link_to "編集", edit_user_path(@user) %>
-    </div>
+     <% if @book.errors.any? %>
+       <%= @book.errors.count %>件のエラーが発生しました
+       <ul>
+       <% @book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+       <% end %>
+       </ul>
+       <% end %>
+   <%= render 'users/info', user: @user %>
 
   <h2>New book</h2>
    <%= form_with model: @book do |f| %>
